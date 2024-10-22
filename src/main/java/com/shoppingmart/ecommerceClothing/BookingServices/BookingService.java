@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.shoppingmart.ecommerceClothing.productsService.ProductRepo;
 import com.shoppingmart.ecommerceClothing.productsService.Productsdto;
 
+import jakarta.persistence.Query;
+
 @Service
 public class BookingService {
 
@@ -29,6 +31,15 @@ public class BookingService {
         bookingDto.setBookingdateTime(LocalDateTime.now());
 
         return bookingDao.saveBooking(bookingDto);
-        
+    }
+
+    public Optional<BookingDto> getbyid(int i)
+    {
+        return bookingDao.getbyid(i);
+    }
+
+     public List<BookingDto> getbypaymenttype(String s)
+    {
+        return bookingDao.getbypaymenttype(s);
     }
 }
